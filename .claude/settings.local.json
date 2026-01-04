@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mvn clean install:*)",
+      "Bash(where mvn:*)",
+      "Bash(if exist target rmdir /s /q target)",
+      "Bash(javac:*)",
+      "Bash(if exist \"c:\\\\smartWork\\\\workspace\\\\yncSchedule\\\\target\" rmdir /s /q \"c:\\\\smartWork\\\\workspace\\\\yncSchedule\\\\target\")",
+      "Bash(mvn clean package:*)",
+      "Bash(dir:*)",
+      "Bash(where /R c:smartWorkworkspaceyncSchedule *.sql)",
+      "Bash(mvn spring-boot:run:*)",
+      "Bash(curl:*)",
+      "Bash(mvn clean:*)",
+      "Bash(mkdir:*)",
+      "Bash(cat:*)",
+      "Bash(findstr:*)",
+      "Bash(timeout /t 15 /nobreak)",
+      "Bash(exit 0)",
+      "Bash(sqlplus64:*)",
+      "Bash(mvn exec:java:*)",
+      "Bash(grep:*)",
+      "Bash(if exist \"c:\\\\smartWork\\\\workspace\\\\yncIntranet\\\\target\" rmdir /s /q \"c:\\\\smartWork\\\\workspace\\\\yncIntranet\\\\target\")",
+      "Bash(powershell -Command \"Get-Content ''c:\\\\smartWork\\\\workspace\\\\yncIntranet\\\\src\\\\main\\\\resources\\\\static\\\\schedule-calendar.html'' | Select-Object -Last 30\")",
+      "Bash(powershell -Command \"Get-Content ''c:\\\\Users\\\\YNC10\\\\Downloads\\\\INTRANET_SETUP.md'' | Measure-Object -Line\")",
+      "Bash(powershell -Command \"Get-Content ''c:\\\\smartWork\\\\workspace\\\\yncIntranet\\\\src\\\\main\\\\resources\\\\static\\\\expense-report_intranet.html'' | Select-Object -First 50\")",
+      "Bash(powershell -Command \"Get-Content ''c:\\\\smartWork\\\\workspace\\\\yncIntranet\\\\src\\\\main\\\\resources\\\\static\\\\expense-report.html'' | Measure-Object -Line\")",
+      "Bash(copy:*)",
+      "Bash(powershell:*)",
+      "Bash(git remote add:*)",
+      "Bash(git init:*)",
+      "Bash(git config:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}
