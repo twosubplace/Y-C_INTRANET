@@ -7,7 +7,6 @@ import com.ync.intranet.dto.WelfareUsageDto;
 import com.ync.intranet.mapper.ExpenseItemIntranetMapper;
 import com.ync.intranet.mapper.ExpenseReportIntranetMapper;
 import com.ync.intranet.mapper.MemberIntranetMapper;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,13 +18,20 @@ import java.util.List;
  * 경비 항목 서비스 (인트라넷)
  */
 @Service
-@RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class ExpenseItemIntranetService {
 
     private final ExpenseItemIntranetMapper expenseItemMapper;
     private final ExpenseReportIntranetMapper expenseReportMapper;
     private final MemberIntranetMapper memberMapper;
+
+    public ExpenseItemIntranetService(ExpenseItemIntranetMapper expenseItemMapper,
+                                      ExpenseReportIntranetMapper expenseReportMapper,
+                                      MemberIntranetMapper memberMapper) {
+        this.expenseItemMapper = expenseItemMapper;
+        this.expenseReportMapper = expenseReportMapper;
+        this.memberMapper = memberMapper;
+    }
 
     /**
      * 경비 항목 조회 (ID)

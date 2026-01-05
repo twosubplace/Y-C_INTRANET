@@ -8,7 +8,6 @@ import com.ync.intranet.mapper.ApprovalLineIntranetMapper;
 import com.ync.intranet.mapper.DocumentIntranetMapper;
 import com.ync.intranet.mapper.MemberIntranetMapper;
 import com.ync.intranet.mapper.ScheduleIntranetMapper;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,7 +19,6 @@ import java.util.List;
  * 일정/휴가 서비스
  */
 @Service
-@RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class ScheduleIntranetService {
 
@@ -28,6 +26,16 @@ public class ScheduleIntranetService {
     private final DocumentIntranetMapper documentMapper;
     private final ApprovalLineIntranetMapper approvalLineMapper;
     private final MemberIntranetMapper memberMapper;
+
+    public ScheduleIntranetService(ScheduleIntranetMapper scheduleMapper,
+                                   DocumentIntranetMapper documentMapper,
+                                   ApprovalLineIntranetMapper approvalLineMapper,
+                                   MemberIntranetMapper memberMapper) {
+        this.scheduleMapper = scheduleMapper;
+        this.documentMapper = documentMapper;
+        this.approvalLineMapper = approvalLineMapper;
+        this.memberMapper = memberMapper;
+    }
 
     /**
      * 일정 생성

@@ -4,7 +4,6 @@ import com.ync.intranet.domain.ApprovalLineIntranet;
 import com.ync.intranet.domain.DocumentIntranet;
 import com.ync.intranet.service.DocumentIntranetService;
 import jakarta.servlet.http.HttpSession;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,10 +16,13 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/api/intranet/documents")
-@RequiredArgsConstructor
 public class DocumentIntranetController {
 
     private final DocumentIntranetService documentService;
+
+    public DocumentIntranetController(DocumentIntranetService documentService) {
+        this.documentService = documentService;
+    }
 
     /**
      * 문서 생성 및 결재 상신

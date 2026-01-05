@@ -8,7 +8,6 @@ import com.ync.intranet.mapper.ApprovalLineIntranetMapper;
 import com.ync.intranet.mapper.DocumentIntranetMapper;
 import com.ync.intranet.mapper.ExpenseReportIntranetMapper;
 import com.ync.intranet.mapper.MemberIntranetMapper;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,7 +18,6 @@ import java.util.List;
  * 경비보고서 서비스 (인트라넷)
  */
 @Service
-@RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class ExpenseReportIntranetService {
 
@@ -27,6 +25,16 @@ public class ExpenseReportIntranetService {
     private final DocumentIntranetMapper documentMapper;
     private final ApprovalLineIntranetMapper approvalLineMapper;
     private final MemberIntranetMapper memberMapper;
+
+    public ExpenseReportIntranetService(ExpenseReportIntranetMapper expenseReportMapper,
+                                        DocumentIntranetMapper documentMapper,
+                                        ApprovalLineIntranetMapper approvalLineMapper,
+                                        MemberIntranetMapper memberMapper) {
+        this.expenseReportMapper = expenseReportMapper;
+        this.documentMapper = documentMapper;
+        this.approvalLineMapper = approvalLineMapper;
+        this.memberMapper = memberMapper;
+    }
 
     /**
      * 경비보고서 조회 (ID)

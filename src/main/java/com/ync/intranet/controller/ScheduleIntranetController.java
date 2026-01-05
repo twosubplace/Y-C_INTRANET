@@ -3,7 +3,6 @@ package com.ync.intranet.controller;
 import com.ync.intranet.domain.ScheduleIntranet;
 import com.ync.intranet.service.ScheduleIntranetService;
 import jakarta.servlet.http.HttpSession;
-import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,10 +17,13 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/intranet/schedules")
 @CrossOrigin(origins = "*")
-@RequiredArgsConstructor
 public class ScheduleIntranetController {
 
     private final ScheduleIntranetService scheduleService;
+
+    public ScheduleIntranetController(ScheduleIntranetService scheduleService) {
+        this.scheduleService = scheduleService;
+    }
 
     /**
      * 일정 목록 조회 (필터링 지원)

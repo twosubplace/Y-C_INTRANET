@@ -7,7 +7,6 @@ import com.ync.intranet.dto.WelfareSummaryDto;
 import com.ync.intranet.service.ExpenseExcelService;
 import com.ync.intranet.service.ExpenseItemIntranetService;
 import com.ync.intranet.service.ExpenseReportIntranetService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -25,12 +24,19 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/api/intranet/expense-reports")
-@RequiredArgsConstructor
 public class ExpenseReportIntranetController {
 
     private final ExpenseReportIntranetService expenseReportService;
     private final ExpenseItemIntranetService expenseItemService;
     private final ExpenseExcelService expenseExcelService;
+
+    public ExpenseReportIntranetController(ExpenseReportIntranetService expenseReportService,
+                                            ExpenseItemIntranetService expenseItemService,
+                                            ExpenseExcelService expenseExcelService) {
+        this.expenseReportService = expenseReportService;
+        this.expenseItemService = expenseItemService;
+        this.expenseExcelService = expenseExcelService;
+    }
 
     /**
      * 전체 경비보고서 조회
